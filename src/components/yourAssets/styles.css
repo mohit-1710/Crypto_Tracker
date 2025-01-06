@@ -1,0 +1,66 @@
+/* Chart specific styles */
+.chart-container {
+    width: 100px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-container svg {
+    width: 100%;
+    height: 100%;
+    stroke: #00FF88;  /* Green color for positive trends */
+    stroke-width: 2;
+    fill: none;
+}
+
+.chart-container.negative svg {
+    stroke: #ff6b6b;  /* Red color for negative trends */
+}
+
+.chart-cell {
+    width: 100px;
+    height: 30px;
+}
+
+.green-chart-small,
+.red-chart-small,
+.purple-chart-small {
+    height: 30px;
+    width: 100px;
+    position: relative;
+}
+
+.chart-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    height: 100%;
+    font-size: 0.9rem;
+}
+
+/* Add button styles */
+.assets-header .icon-btn {
+    background-color: #a6ee66;  /* Using the specific accent color */
+    color: #000;  /* Dark text for better contrast on light background */
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.assets-header .icon-btn:hover {
+    opacity: 0.9;
+}
+
+.assets-header .icon-btn svg {
+    fill: currentColor;
+}
+
+/* ... other component-specific styles ... */ 

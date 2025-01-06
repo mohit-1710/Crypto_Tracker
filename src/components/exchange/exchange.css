@@ -1,0 +1,214 @@
+/* Exchange-specific styles */
+.exchange-section {
+    position: relative;
+}
+
+/* Dropdown Container */
+.coin-dropdown {
+    position: absolute;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    max-height: 300px;
+    width: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.coin-dropdown.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown Options */
+.coin-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.coin-option:last-child {
+    border-bottom: none;
+}
+
+.coin-option:hover {
+    background-color: var(--hover-color);
+    transform: none;
+}
+
+.coin-option.selected {
+    background-color: var(--hover-color);
+    font-weight: 500;
+}
+
+.coin-option img {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.coin-option .coin-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.coin-option .coin-name {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.coin-option .coin-symbol {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+    margin-top: 2px;
+}
+
+/* Crypto Selector Button */
+.crypto-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.crypto-selector:hover {
+    background-color: var(--hover-color);
+}
+
+.crypto-selector.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color-transparent);
+}
+
+.crypto-selector .selected-coin {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.crypto-selector .selected-coin img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.success-message {
+    background-color: #4caf50;
+}
+
+.error-message {
+    background-color: #f44336;
+}
+
+.info-message {
+    background-color: #2196f3;
+}
+
+/* Loading states */
+.crypto-selector.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.swap-btn.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.swap-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animations */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+/* Add new styles for rate display */
+.exchange-rate {
+    margin-top: 16px;
+    text-align: center;
+    color: var(--text-secondary-color);
+    min-height: 24px;
+}
+
+.exchange-rate.loading {
+    opacity: 0.7;
+}
+
+.crypto-selector span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.crypto-selector + .coin-dropdown {
+    position: absolute;
+    top: 100%; /* Directly below the button */
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+
+.coin-dropdown.visible {
+    display: block;
+}
+
+.coin-option {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.coin-option:hover {
+    background-color: var(--hover-color);
+}
+
+.no-coins {
+    padding: 10px 16px;
+    color: var(--text-secondary-color);
+    text-align: center;
+} 

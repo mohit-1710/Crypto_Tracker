@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptic Dashboard</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/components/exchange/exchange.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script type="module" src="src/script.js"></script>
+    <link rel="stylesheet" href="src/components/coinConverter/coinConverter.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="images/cryptic-logo.svg" alt="Cryptic">
+                <span>Cryptic</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="active"><i class="icon-home"></i> Home</a>
+                <a href="#"><i class="icon-portfolio"></i> Portfolio</a>
+                <a href="#"><i class="icon-health"></i> Health Check</a>
+                <a href="#"><i class="icon-insights"></i> Insights</a>
+                <a href="#"><i class="icon-support"></i> Support</a>
+                <a href="#"><i class="icon-trades"></i> Trades</a>
+                <a href="#"><i class="icon-watchlist"></i> Watchlist</a>
+                <a href="#"><i class="icon-markets"></i> Markets</a>
+                <a href="#"><i class="icon-funds"></i> Funds</a>
+                <a href="#"><i class="icon-research"></i> Research</a>
+                <a href="#"><i class="icon-tools"></i> Tools</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="user-section">
+                    <img src="images\profilePic.png" alt="Profile" class="avatar">
+                    <div class="user-info">
+                        <h3>Mohit <span class="pro-badge">PRO</span></h3>
+                        <p>@mohit_crypto_ow</p>
+                    </div>
+                    <button class="deposit-btn">
+                        Deposit
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.64 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                    <div class="search-container">
+                        <input type="search" placeholder="Search here...">
+                    </div>
+                    <button class="icon-btn settings-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Settings</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <section class="gainers-section">
+                    <!-- Header with title and description -->
+                    <div class="section-header">
+                        <div class="title-group">
+                            <h1>Top Gainers & Losers</h1>
+                            <p class="subtitle">Track, manage and forecast your assets <span class="asset-count">16
+                                    Assets</span></p>
+                        </div>
+                        <div class="filter-buttons">
+                            <button class="filter-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"
+                                        stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                24H
+                            </button>
+                            <button class="filter-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"
+                                        stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                Gainers
+                            </button>
+                            <button class="filter-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"
+                                        stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                Asc
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Crypto Cards Grid -->
+                    <div class="crypto-cards">
+                        <!-- Bitcoin Card -->
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <div class="crypto-info">
+                                    <img src="images/bitcoin.svg" alt="BTC" class="crypto-icon">
+                                    <div>
+                                        <h3>Bitcoin (BTC)</h3>
+                                        <p>True Chart</p>
+                                    </div>
+                                </div>
+                                <button class="expand-btn">↗</button>
+                            </div>
+                            <div class="card-content">
+                                <div class="content-top">
+                                    <p>Reward Rate</p>
+                                    <h2>45.34%</h2>
+                                    <span class="trend-up">↑ 11.4%</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="chart green-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tether Card -->
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <div class="crypto-info">
+                                    <img src="images/tether.svg" alt="USDT" class="crypto-icon">
+                                    <div>
+                                        <h3>Tether (USDT)</h3>
+                                        <p>True Chart</p>
+                                    </div>
+                                </div>
+                                <button class="expand-btn">↗</button>
+                            </div>
+                            <div class="card-content">
+                                <div class="content-top">
+                                    <p>Reward Rate</p>
+                                    <h2>17.63%</h2>
+                                    <span class="trend-down">↓ 0.3%</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="chart red-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ethereum Card -->
+                        <div class="crypto-card">
+                            <div class="card-header">
+                                <div class="crypto-info">
+                                    <img src="images/ethereum.svg" alt="ETH" class="crypto-icon">
+                                    <div>
+                                        <h3>Ethereum (ETH)</h3>
+                                        <p>True Chart</p>
+                                    </div>
+                                </div>
+                                <button class="expand-btn">↗</button>
+                            </div>
+                            <div class="card-content">
+                                <div class="content-top">
+                                    <p>Reward Rate</p>
+                                    <h2>25.83%</h2>
+                                    <span class="trend-up">↑ 12.1%</span>
+                                </div>
+                                <div class="chart-container">
+                                    <div class="chart purple-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coin Converter Card -->
+                        <div class="coin-converter">
+                            <h2>Converter</h2>
+                            <div class="converter-display">
+                                <span class="coin-price">Convert your crypto to fiat</span>
+                            </div>
+                            <div class="currency-selector">
+                                <select id="crypto-dropdown">
+                                    <option value="bitcoin">Bitcoin (BTC)</option>
+                                    <option value="ethereum">Ethereum (ETH)</option>
+                                    <option value="cardano">Cardano (ADA)</option>
+                                    <option value="binancecoin">Binance Coin (BNB)</option>
+                                    <option value="ripple">Ripple (XRP)</option>
+                                    <option value="solana">Solana (SOL)</option>
+                                    <option value="polkadot">Polkadot (DOT)</option>
+                                    <option value="dogecoin">Dogecoin (DOGE)</option>
+                                    <option value="litecoin">Litecoin (LTC)</option>
+                                    <option value="avalanche-2">Avalanche (AVAX)</option>
+                                    <option value="shiba-inu">Shiba Inu (SHIB)</option>
+                                    <option value="polygon">Polygon (MATIC)</option>
+                                    <option value="cosmos">Cosmos (ATOM)</option>
+                                    <option value="chainlink">Chainlink (LINK)</option>
+                                    <option value="uniswap">Uniswap (UNI)</option>
+                                    <option value="stellar">Stellar (XLM)</option>
+                                    <option value="bitcoin-cash">Bitcoin Cash (BCH)</option>
+                                    <option value="algorand">Algorand (ALGO)</option>
+                                    <option value="filecoin">Filecoin (FIL)</option>
+                                    <option value="ethereum-classic">Ethereum Classic (ETC)</option>
+                                    <option value="vechain">VeChain (VET)</option>
+                                    <option value="tron">TRON (TRX)</option>
+                                    <option value="near">NEAR Protocol (NEAR)</option>
+                                    <option value="ftx-token">FTX Token (FTT)</option>
+                                    <option value="aave">Aave (AAVE)</option>
+                                    <option value="pancakeswap-token">PancakeSwap (CAKE)</option>
+                                    <option value="axie-infinity">Axie Infinity (AXS)</option>
+                                    <option value="theta-token">Theta Network (THETA)</option>
+                                    <option value="tezos">Tezos (XTZ)</option>
+                                    <option value="eos">EOS.IO (EOS)</option>
+                                    <option value="the-sandbox">The Sandbox (SAND)</option>
+                                    <option value="decentraland">Decentraland (MANA)</option>
+                                    <option value="the-graph">The Graph (GRT)</option>
+                                    <option value="chiliz">Chiliz (CHZ)</option>
+                                    <option value="enjincoin">Enjin Coin (ENJ)</option>
+                                    <option value="zilliqa">Zilliqa (ZIL)</option>
+                                    <option value="1inch">1inch (1INCH)</option>
+                                    <option value="curve-dao-token">Curve DAO Token (CRV)</option>
+                                    <option value="basic-attention-token">Basic Attention Token (BAT)</option>
+                                    <option value="kusama">Kusama (KSM)</option>
+                                    <option value="icon">ICON (ICX)</option>
+                                    <option value="quant-network">Quant (QNT)</option>
+                                    <option value="ren">Ren (REN)</option>
+                                    <option value="omg-network">OMG Network (OMG)</option>
+                                    <option value="nexo">Nexo (NEXO)</option>
+                                    <option value="0x">0x (ZRX)</option>
+                                    <option value="helium">Helium (HNT)</option>
+                                    <option value="celo">Celo (CELO)</option>
+                                    <option value="xdce-crowd-sale">XDC Network (XDC)</option>
+                                    <option value="dash">Dash (DASH)</option>
+                                    <option value="ankr">Ankr (ANKR)</option>
+                                    <option value="arweave">Arweave (AR)</option>
+                                    <option value="crypto-com-chain">Crypto.com Coin (CRO)</option>
+                                    <option value="iota">IOTA (MIOTA)</option>
+                                    <option value="kava">Kava (KAVA)</option>
+                                    <option value="ravencoin">Ravencoin (RVN)</option>
+                                    <option value="bittorrent">BitTorrent (BTT)</option>
+                                    <option value="waves">Waves (WAVES)</option>
+                                    <option value="yearn-finance">Yearn Finance (YFI)</option>
+                                    <option value="terra-luna">Terra (LUNA)</option>
+                                    <option value="holo">Holo (HOT)</option>
+                                    <option value="compound-governance-token">Compound (COMP)</option>
+                                    <option value="synthetix-network-token">Synthetix (SNX)</option>
+                                    <option value="fantom">Fantom (FTM)</option>
+                                    <option value="storj">Storj (STORJ)</option>
+                                    <!-- Add more cryptocurrencies as needed -->
+                                </select>
+                            </div>
+                            <div class="currency-selector">
+                                <select id="fiat-dropdown">
+                                    <option value="usd">USD</option>
+                                    <option value="eur">EUR</option>
+                                    <option value="gbp">GBP</option>
+                                    <option value="jpy">JPY</option>
+                                    <option value="aud">AUD</option>
+                                    <option value="cad">CAD</option>
+                                    <option value="chf">CHF</option>
+                                    <option value="cny">CNY</option>
+                                    <option value="hkd">HKD</option>
+                                    <option value="nzd">NZD</option>
+                                    <option value="sek">SEK</option>
+                                    <option value="nok">NOK</option>
+                                    <option value="sgd">SGD</option>
+                                    <option value="inr">INR</option>
+                                    <option value="krw">KRW</option>
+                                    <option value="zar">ZAR</option>
+                                    <option value="brl">BRL</option>
+                                    <option value="mxn">MXN</option>
+                                    <option value="rub">RUB</option>
+                                    <option value="try">TRY</option>
+                                    <option value="pln">PLN</option>
+                                    <option value="thb">THB</option>
+                                    <option value="idr">IDR</option>
+                                    <option value="myr">MYR</option>
+                                    <option value="php">PHP</option>
+                                    <option value="vnd">VND</option>
+                                    <option value="sar">SAR</option>
+                                    <option value="aed">AED</option>
+                                    <option value="ils">ILS</option>
+                                    <option value="clp">CLP</option>
+                                    <option value="pen">PEN</option>
+                                    <!-- Add more fiat currencies as needed -->
+                                </select>
+                            </div>
+                            <button class="convert-btn">Convert</button>
+                            <div class="conversion-result">
+                                <!-- Conversion result will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Assets Table Section -->
+                <section class="assets-table">
+                    <!-- Table content will go here -->
+                </section>
+
+                <div class="dashboard-layout">
+                    <!-- Assets Section -->
+                    <section class="assets-section">
+                        <div class="assets-header">
+                            <div class="title-group">
+                                <h2>Your Assets</h2>
+                                <span class="assets-count">__ Assets</span>
+                            </div>
+                            <div class="header-actions">
+                                <!-- The + button will be inserted here by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="filter-tags">
+                            <button class="filter-tag">
+                                Gainers
+                                <svg class="close-icon" width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                </svg>
+                            </button>
+                            <button class="filter-tag">
+                                Vol 500-10,000 
+                                <svg class="close-icon" width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                </svg>
+                            </button>
+                            <button class="filter-tag more-filters">
+                                More filters
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M7 10l5 5 5-5z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="assets-table">
+                            <div class="table-header">
+                                <button class="header-cell">Coin</button>
+                                <button class="header-cell">Last price</button>
+                                <button class="header-cell">Trend</button>
+                                <button class="header-cell">Volume</button>
+                                <button class="header-cell">Chart</button>
+                                <div class="header-cell"></div>
+                            </div>
+
+                            <div class="table-body">
+                                <!-- Bitcoin Row -->
+                                <div class="table-row">
+                                    <div class="cell coin-cell">
+                                        <div class="coin-icon bitcoin">
+                                            <svg viewBox="0 0 32 32">
+                                                <path
+                                                    d="M16 16v-1.2c1.2-.1 2.1-.6 2.6-1.4.5-.8.7-1.7.4-2.7-.3-1-.9-1.7-1.9-2-.9-.4-2.1-.5-3.7-.4V6h-1.6v2.3c-.4 0-.8 0-1.2.1V6h-1.6v2.4c-.4.1-1 .1-1.7.1H6v1.7h1.2c.3 0 .6 0 .7.1.2.1.3.1.4.2.1.1.1.2.2.3v7.3c0 .2-.1.4-.2.5-.1.1-.3.2-.6.2H6.1L6 20.5h1.3c.5 0 1.1 0 1.7.1v2.4h1.6v-2.3c.4 0 .8.1 1.2.1v2.3h1.6v-2.3c2.2-.1 3.8-.5 4.8-1.2 1-.7 1.5-1.7 1.5-3.1 0-.7-.2-1.4-.5-1.9-.2-.6-.7-1-.9-1.2zm-5.8-3.1h2.5c.5 0 1 .1 1.3.2.3.1.6.3.8.5.2.2.3.5.4.8.1.3.1.6 0 1-.1.3-.2.6-.4.9-.2.2-.5.4-.8.5-.3.1-.8.2-1.3.2h-2.5v-4.1zm4.2 8.4c-.2.2-.5.4-.8.5-.3.1-.8.2-1.3.2H9.7v-4.4h2.7c.5 0 1 .1 1.3.2.3.1.6.3.8.5.2.2.3.5.4.8.1.3.1.6 0 1-.1.4-.3.8-.5 1.2z" />
+                                            </svg>
+                                        </div>
+                                        <div class="coin-info">
+                                            <span class="coin-name">Bitcoin</span>
+                                            <span class="coin-symbol">BTC</span>
+                                        </div>
+                                    </div>
+                                    <div class="cell price-cell">$99,440</div>
+                                    <div class="cell trend-cell positive">
+                                        <svg width="12" height="12" viewBox="0 0 24 24">
+                                            <path d="M7 14l5-5 5 5z" />
+                                        </svg>
+                                        11.4%
+                                    </div>
+                                    <div class="cell volume-cell">998</div>
+                                    <div class="cell chart-cell">
+                                        <div class="chart green-chart-small"></div>
+                                    </div>
+                                    <div class="cell action-cell">
+                                        <button class="trade-btn">TRADE</button>
+                                    </div>
+                                </div>
+
+                                <!-- Ethereum Row -->
+                                <div class="table-row">
+                                    <div class="cell coin-cell">
+                                        <div class="coin-icon ethereum">
+                                            <svg viewBox="0 0 32 32">
+                                                <path
+                                                    d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm7.994-15.781L16.498 4 9 16.22l7.498 4.353 7.496-4.354zM24 17.616l-7.502 4.351L9 17.617l7.498 10.378L24 17.616z" />
+                                            </svg>
+                                        </div>
+                                        <div class="coin-info">
+                                            <span class="coin-name">Ethereum</span>
+                                            <span class="coin-symbol">ETH</span>
+                                        </div>
+                                    </div>
+                                    <div class="cell price-cell">$3,500</div>
+                                    <div class="cell trend-cell positive">
+                                        <svg width="12" height="12" viewBox="0 0 24 24">
+                                            <path d="M7 14l5-5 5 5z" />
+                                        </svg>
+                                        12.1%
+                                    </div>
+                                    <div class="cell volume-cell">45</div>
+                                    <div class="cell chart-cell">
+                                        <div class="chart purple-chart-small"></div>
+                                    </div>
+                                    <div class="cell action-cell">
+                                        <button class="trade-btn">TRADE</button>
+                                    </div>
+                                </div>
+
+                                <!-- Tether Row -->
+                                <div class="table-row">
+                                    <div class="cell coin-cell">
+                                        <div class="coin-icon tether">
+                                            <svg viewBox="0 0 32 32">
+                                                <path
+                                                    d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm.5-6.908V17.69h5.526v-1.783H9.974V17.69h5.526v7.402h1z" />
+                                            </svg>
+                                        </div>
+                                        <div class="coin-info">
+                                            <span class="coin-name">Tether</span>
+                                            <span class="coin-symbol">USDT</span>
+                                        </div>
+                                    </div>
+                                    <div class="cell price-cell">$1.00</div>
+                                    <div class="cell trend-cell negative">
+                                        <svg width="12" height="12" viewBox="0 0 24 24">
+                                            <path d="M7 10l5 5 5-5z" />
+                                        </svg>
+                                        0.3%
+                                    </div>
+                                    <div class="cell volume-cell">328</div>
+                                    <div class="cell chart-cell">
+                                        <div class="chart red-chart-small"></div>
+                                    </div>
+                                    <div class="cell action-cell">
+                                        <button class="trade-btn">TRADE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Exchange Section -->
+                    <section class="exchange-section">
+                        <div class="exchange-header">
+                            <h2>Exchange</h2>
+                            <button class="expand-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path
+                                        d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="exchange-tabs">
+                            <button class="tab-btn active">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3z M9 3L5 6.99h3V14h2V6.99h3L9 3z" />
+                                </svg>
+                                Swap
+                            </button>
+                            <button class="tab-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                                </svg>
+                                Limit
+                            </button>
+                        </div>
+
+                        <div class="exchange-inputs">
+                            <!-- First Crypto Selector -->
+                            <div class="crypto-input">
+                                <div class="input-header">
+                                    <div class="user-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                        </svg>
+                                    </div>
+                                    <button class="crypto-selector" id="crypto-selector-1" data-type="from">
+                                        <span>BTC</span>
+                                        <svg width="12" height="12" viewBox="0 0 24 24">
+                                            <path d="M7 10l5 5 5-5z" />
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu" id="crypto-dropdown-menu-1">
+                                        <ul>
+                                            <li data-value="bitcoin">Bitcoin (BTC)</li>
+                                            <li data-value="ethereum">Ethereum (ETH)</li>
+                                            <li data-value="cardano">Cardano (ADA)</li>
+                                            <li data-value="binancecoin">Binance Coin (BNB)</li>
+                                            <li data-value="ripple">Ripple (XRP)</li>
+                                            <li data-value="solana">Solana (SOL)</li>
+                                            <li data-value="polkadot">Polkadot (DOT)</li>
+                                            <li data-value="dogecoin">Dogecoin (DOGE)</li>
+                                            <li data-value="litecoin">Litecoin (LTC)</li>
+                                            <li data-value="avalanche-2">Avalanche (AVAX)</li>
+                                            <li data-value="shiba-inu">Shiba Inu (SHIB)</li>
+                                            <li data-value="polygon">Polygon (MATIC)</li>
+                                            <li data-value="cosmos">Cosmos (ATOM)</li>
+                                            <li data-value="chainlink">Chainlink (LINK)</li>
+                                            <li data-value="uniswap">Uniswap (UNI)</li>
+                                            <li data-value="stellar">Stellar (XLM)</li>
+                                            <li data-value="bitcoin-cash">Bitcoin Cash (BCH)</li>
+                                            <li data-value="algorand">Algorand (ALGO)</li>
+                                            <li data-value="filecoin">Filecoin (FIL)</li>
+                                            <li data-value="ethereum-classic">Ethereum Classic (ETC)</li>
+                                            <li data-value="vechain">VeChain (VET)</li>
+                                            <li data-value="tron">TRON (TRX)</li>
+                                            <li data-value="near">NEAR Protocol (NEAR)</li>
+                                            <li data-value="ftx-token">FTX Token (FTT)</li>
+                                            <li data-value="aave">Aave (AAVE)</li>
+                                            <li data-value="pancakeswap-token">PancakeSwap (CAKE)</li>
+                                            <li data-value="axie-infinity">Axie Infinity (AXS)</li>
+                                            <li data-value="theta-token">Theta Network (THETA)</li>
+                                            <li data-value="tezos">Tezos (XTZ)</li>
+                                            <li data-value="eos">EOS.IO (EOS)</li>
+                                            <li data-value="the-sandbox">The Sandbox (SAND)</li>
+                                            <li data-value="decentraland">Decentraland (MANA)</li>
+                                            <li data-value="the-graph">The Graph (GRT)</li>
+                                            <li data-value="chiliz">Chiliz (CHZ)</li>
+                                            <li data-value="enjincoin">Enjin Coin (ENJ)</li>
+                                            <li data-value="zilliqa">Zilliqa (ZIL)</li>
+                                            <li data-value="1inch">1inch (1INCH)</li>
+                                            <li data-value="curve-dao-token">Curve DAO Token (CRV)</li>
+                                            <li data-value="basic-attention-token">Basic Attention Token (BAT)</li>
+                                            <li data-value="kusama">Kusama (KSM)</li>
+                                            <li data-value="icon">ICON (ICX)</li>
+                                            <li data-value="quant-network">Quant (QNT)</li>
+                                            <li data-value="ren">Ren (REN)</li>
+                                            <li data-value="omg-network">OMG Network (OMG)</li>
+                                            <li data-value="nexo">Nexo (NEXO)</li>
+                                            <li data-value="0x">0x (ZRX)</li>
+                                            <li data-value="helium">Helium (HNT)</li>
+                                            <li data-value="celo">Celo (CELO)</li>
+                                            <li data-value="xdce-crowd-sale">XDC Network (XDC)</li>
+                                            <li data-value="dash">Dash (DASH)</li>
+                                            <li data-value="ankr">Ankr (ANKR)</li>
+                                            <li data-value="arweave">Arweave (AR)</li>
+                                            <li data-value="crypto-com-chain">Crypto.com Coin (CRO)</li>
+                                            <li data-value="iota">IOTA (MIOTA)</li>
+                                            <li data-value="kava">Kava (KAVA)</li>
+                                            <li data-value="ravencoin">Ravencoin (RVN)</li>
+                                            <li data-value="bittorrent">BitTorrent (BTT)</li>
+                                            <li data-value="waves">Waves (WAVES)</li>
+                                            <li data-value="yearn-finance">Yearn Finance (YFI)</li>
+                                            <li data-value="terra-luna">Terra (LUNA)</li>
+                                            <li data-value="holo">Holo (HOT)</li>
+                                            <li data-value="compound-governance-token">Compound (COMP)</li>
+                                            <li data-value="synthetix-network-token">Synthetix (SNX)</li>
+                                            <li data-value="fantom">Fantom (FTM)</li>
+                                            <li data-value="storj">Storj (STORJ)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="input-value">
+                                    <span class="amount">0.4248</span>
+                                    <span class="value-usd">-$3054.52</span>
+                                </div>
+                            </div>
+
+                            <!-- Second Crypto Selector -->
+                            <div class="crypto-input">
+                                <div class="input-header">
+                                    <div class="user-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                        </svg>
+                                    </div>
+                                    <button class="crypto-selector" id="crypto-selector-2" data-type="to">
+                                        <span>ETH</span>
+                                        <svg width="12" height="12" viewBox="0 0 24 24">
+                                            <path d="M7 10l5 5 5-5z" />
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu" id="crypto-dropdown-menu-2">
+                                        <ul>
+                                            <li data-value="bitcoin">Bitcoin (BTC)</li>
+                                            <li data-value="ethereum">Ethereum (ETH)</li>
+                                            <li data-value="cardano">Cardano (ADA)</li>
+                                            <li data-value="binancecoin">Binance Coin (BNB)</li>
+                                            <li data-value="ripple">Ripple (XRP)</li>
+                                            <li data-value="solana">Solana (SOL)</li>
+                                            <li data-value="polkadot">Polkadot (DOT)</li>
+                                            <li data-value="dogecoin">Dogecoin (DOGE)</li>
+                                            <li data-value="litecoin">Litecoin (LTC)</li>
+                                            <li data-value="avalanche-2">Avalanche (AVAX)</li>
+                                            <li data-value="shiba-inu">Shiba Inu (SHIB)</li>
+                                            <li data-value="polygon">Polygon (MATIC)</li>
+                                            <li data-value="cosmos">Cosmos (ATOM)</li>
+                                            <li data-value="chainlink">Chainlink (LINK)</li>
+                                            <li data-value="uniswap">Uniswap (UNI)</li>
+                                            <li data-value="stellar">Stellar (XLM)</li>
+                                            <li data-value="bitcoin-cash">Bitcoin Cash (BCH)</li>
+                                            <li data-value="algorand">Algorand (ALGO)</li>
+                                            <li data-value="filecoin">Filecoin (FIL)</li>
+                                            <li data-value="ethereum-classic">Ethereum Classic (ETC)</li>
+                                            <li data-value="vechain">VeChain (VET)</li>
+                                            <li data-value="tron">TRON (TRX)</li>
+                                            <li data-value="near">NEAR Protocol (NEAR)</li>
+                                            <li data-value="ftx-token">FTX Token (FTT)</li>
+                                            <li data-value="aave">Aave (AAVE)</li>
+                                            <li data-value="pancakeswap-token">PancakeSwap (CAKE)</li>
+                                            <li data-value="axie-infinity">Axie Infinity (AXS)</li>
+                                            <li data-value="theta-token">Theta Network (THETA)</li>
+                                            <li data-value="tezos">Tezos (XTZ)</li>
+                                            <li data-value="eos">EOS.IO (EOS)</li>
+                                            <li data-value="the-sandbox">The Sandbox (SAND)</li>
+                                            <li data-value="decentraland">Decentraland (MANA)</li>
+                                            <li data-value="the-graph">The Graph (GRT)</li>
+                                            <li data-value="chiliz">Chiliz (CHZ)</li>
+                                            <li data-value="enjincoin">Enjin Coin (ENJ)</li>
+                                            <li data-value="zilliqa">Zilliqa (ZIL)</li>
+                                            <li data-value="1inch">1inch (1INCH)</li>
+                                            <li data-value="curve-dao-token">Curve DAO Token (CRV)</li>
+                                            <li data-value="basic-attention-token">Basic Attention Token (BAT)</li>
+                                            <li data-value="kusama">Kusama (KSM)</li>
+                                            <li data-value="icon">ICON (ICX)</li>
+                                            <li data-value="quant-network">Quant (QNT)</li>
+                                            <li data-value="ren">Ren (REN)</li>
+                                            <li data-value="omg-network">OMG Network (OMG)</li>
+                                            <li data-value="nexo">Nexo (NEXO)</li>
+                                            <li data-value="0x">0x (ZRX)</li>
+                                            <li data-value="helium">Helium (HNT)</li>
+                                            <li data-value="celo">Celo (CELO)</li>
+                                            <li data-value="xdce-crowd-sale">XDC Network (XDC)</li>
+                                            <li data-value="dash">Dash (DASH)</li>
+                                            <li data-value="ankr">Ankr (ANKR)</li>
+                                            <li data-value="arweave">Arweave (AR)</li>
+                                            <li data-value="crypto-com-chain">Crypto.com Coin (CRO)</li>
+                                            <li data-value="iota">IOTA (MIOTA)</li>
+                                            <li data-value="kava">Kava (KAVA)</li>
+                                            <li data-value="ravencoin">Ravencoin (RVN)</li>
+                                            <li data-value="bittorrent">BitTorrent (BTT)</li>
+                                            <li data-value="waves">Waves (WAVES)</li>
+                                            <li data-value="yearn-finance">Yearn Finance (YFI)</li>
+                                            <li data-value="terra-luna">Terra (LUNA)</li>
+                                            <li data-value="holo">Holo (HOT)</li>
+                                            <li data-value="compound-governance-token">Compound (COMP)</li>
+                                            <li data-value="synthetix-network-token">Synthetix (SNX)</li>
+                                            <li data-value="fantom">Fantom (FTM)</li>
+                                            <li data-value="storj">Storj (STORJ)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="input-value">
+                                    <span class="amount">3.675</span>
+                                    <span class="value-usd">-$354.52</span>
+                                </div>
+                            </div>
+
+                            <div class="exchange-rate">
+                                Select coins to compare prices
+                            </div>
+
+                            <button class="swap-btn">
+                                Swap
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="src/components/coinConverter/coinConverter.js" type="module"></script>
+</body>
+
+</html>

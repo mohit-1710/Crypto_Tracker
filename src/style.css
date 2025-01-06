@@ -1,0 +1,1123 @@
+/* Import component styles */
+@import url('./components/yourAssets/styles.css');
+
+:root {
+    --primary-color: #0e0f11;
+    --secondary-color: #1a1a1d;
+    --accent-color: #a6ee66;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    padding: 6px;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+}
+
+.logo span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-menu a.active {
+    background-color: rgba(166, 238, 102, 0.1);
+    color: var(--accent-color);
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.deposit-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container input[type="search"] {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    width: 200px;
+    font-size: 0.9rem;
+}
+
+.search-container input[type="search"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-container input[type="search"]:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.settings-btn span {
+    font-size: 0.9rem;
+}
+
+/* Optional: Add a notification dot */
+.notification-btn {
+    position: relative;
+}
+
+.notification-btn::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+}
+
+/* Dashboard Content Styles */
+.dashboard-content {
+    padding: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.crypto-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0.5rem;
+}
+
+/* Add more specific styles as needed */
+
+/* Add these new styles for better highlighting */
+.deposit-btn:hover {
+    background-color: #b5f47d;  /* Slightly lighter shade for hover */
+}
+
+/* Add this for any buttons or elements that need the accent color */
+.accent-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.accent-text {
+    color: var(--accent-color);
+}
+
+/* Gainers Section Styles */
+.gainers-section {
+    padding: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.title-group h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.asset-count {
+    color: var(--text-primary);
+    margin-left: 0.5rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Crypto Cards Grid */
+.crypto-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.crypto-card {
+    aspect-ratio: 1 / 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0; /* Prevents header from shrinking */
+}
+
+.crypto-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.crypto-info h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.crypto-info p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0; /* Allows content to shrink properly */
+}
+
+.content-top {
+    flex-shrink: 0; /* Prevents top content from shrinking */
+    margin-bottom: 0.75rem;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.card-content h2 {
+    font-size: 2rem;
+    line-height: 1;
+    margin: 0 0 0.25rem 0;
+}
+
+.trend-up, .trend-down {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.chart-container {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    margin: 0 -1.5rem -1.5rem; /* Extends to edges of card */
+    width: calc(100% + 3rem); /* Compensates for negative margins */
+    overflow: hidden; /* Prevents overflow */
+}
+
+.chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Chart color variations with adjusted gradients */
+.green-chart {
+    background: linear-gradient(180deg, rgba(166, 238, 102, 0.1) 0%, rgba(166, 238, 102, 0) 100%);
+}
+
+.red-chart {
+    background: linear-gradient(180deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0) 100%);
+}
+
+.purple-chart {
+    background: linear-gradient(180deg, rgba(149, 128, 255, 0.1) 0%, rgba(149, 128, 255, 0) 100%);
+}
+
+/* Ensure canvas takes full size of chart */
+.chart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden; /* Prevents overflow */
+}
+
+/* Crypto icon styles */
+.crypto-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color);
+}
+
+.expand-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .crypto-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .crypto-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    background: linear-gradient(135deg, rgba(166, 238, 102, 0.1) 0%, rgba(149, 128, 255, 0.1) 100%),
+                url('../images/background.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure text remains readable over the background */
+.portfolio-card h2,
+.portfolio-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Darkens the background for better text readability */
+    z-index: 0;
+}
+
+/* Ensure all content stays above the overlay */
+.portfolio-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-card h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.portfolio-card p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.activate-btn {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.schedule-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pro-badge {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Assets Section Styles */
+.assets-section {
+    padding: 24px;
+    background: var(--secondary-color);
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+/* Assets Header Styles */
+.assets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.title-group h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.assets-count {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 100px;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-cell {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 100px;
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+}
+
+.coin-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.coin-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    position: relative;
+}
+
+/* Cryptocurrency-specific gradients */
+.bitcoin {
+    background: linear-gradient(135deg, #F7931A 0%, #FFAD33 100%);
+}
+
+.auto-token {
+    background: linear-gradient(135deg, #FFB347 0%, #FFCC33 100%);
+}
+
+.infracoin {
+    background: linear-gradient(135deg, #8E9AAF 0%, #CBC0D3 100%);
+}
+
+.coin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.coin-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.coin-symbol {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.price-cell {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.trend-cell {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.trend-cell.positive {
+    color: #00FF88;
+}
+
+.volume-cell {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chart-cell svg {
+    width: 100%;
+    height: 30px;
+    stroke: #00FF88;
+    stroke-width: 2;
+    fill: none;
+}
+
+.trade-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.trade-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Specific cryptocurrency icons */
+.bitcoin { background-color: #F7931A; }
+.ethereum { background-color: #627EEA; }
+.tether { background-color: #26A17B; }
+
+/* Exchange Section Styles */
+.exchange-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1rem 2rem;
+}
+
+.exchange-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.exchange-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.crypto-input {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.crypto-selector {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.input-value {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value-usd {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+}
+
+.exchange-rate {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.swap-btn {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+/* Portfolio Card Logo Styles */
+.portfolio-card .cryptic-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.portfolio-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Add these new styles */
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 24px;
+    padding: 24px;
+}
+
+.assets-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.assets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.title-group h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.assets-count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Exchange Section */
+.exchange-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    height: fit-content;
+}
+
+.exchange-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.exchange-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.tab-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.exchange-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.crypto-input {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.crypto-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.exchange-rate {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    padding: 16px 0;
+}
+
+.swap-btn {
+    width: 100%;
+    background: #00FF88;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.swap-btn:hover {
+    background: #00E67A;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* Add these new styles for the small charts in the assets table */
+.chart-cell {
+    width: 100px;
+    height: 30px;
+}
+
+.green-chart-small,
+.red-chart-small,
+.purple-chart-small {
+    height: 30px;
+    width: 100%;
+    position: relative;
+}
+
+.negative {
+    color: #ff6b6b;
+}
+
+.positive {
+    color: #a6ee66;
+}
+
+/* Cryptocurrency-specific colors */
+.bitcoin { background-color: #F7931A; }
+.ethereum { background-color: #627EEA; }
+.tether { background-color: #26A17B; }
+
+.coin-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+}
+.deposit-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Creates space between text and icon */
+}
+
+/* Assets Header Styles */
+.assets-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.assets-header .header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Add Button Styles */
+.icon-btn.add-btn {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.icon-btn.add-btn:hover {
+    background: #b5f47d;
+    transform: scale(1.05);
+}
+
+.icon-btn.add-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Filter Dropdown */
+.filter-dropdown {
+    position: fixed;
+    background: var(--surface-color, #1a1f2e);
+    border: 1px solid var(--border-color, #2a2f3e);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.filter-dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.filter-option {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-color, #fff);
+}
+
+.filter-option:hover {
+    background-color: var(--hover-color, #2a2f3e);
+}
+
+/* Filter Tags */
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--surface-color, #1a1f2e);
+    border: 1px solid var(--border-color, #2a2f3e);
+    border-radius: 20px;
+    color: var(--text-color, #fff);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filter-tag:hover {
+    background-color: var(--hover-color, #2a2f3e);
+}
+
+.filter-tag .close-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.filter-tag .close-icon:hover {
+    opacity: 1;
+}
+
+/* Animation for sorting */
+.table-row.sorting {
+    transition: transform 0.3s ease-out;
+}
+
+/* Add these new styles */
+.crypto-selector.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.swap-btn.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.swap-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.success-message,
+.error-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+}
+
+.success-message {
+    background-color: #4caf50;
+}
+
+.error-message {
+    background-color: #f44336;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
